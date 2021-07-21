@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="xmlFileTestTransf.xsl"?>
+<content>
+	<item>
+		<title>Head1</title>
+		<txt>
+text 1 <b>be</b>
+		</txt>
+		<sub>
+			<item>
+				<title>HeadSub</title>
+				<txt>text 2</txt>
+				<sub></sub>
+			</item>
+		</sub>
+	</item>
+	<item>
+		<title>Second</title>
+		<txt>text 1B</txt>
+	</item>
+</content>
