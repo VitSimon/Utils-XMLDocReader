@@ -14,7 +14,8 @@
 				<aside>
 					<ul class="tree-view">
 						<xsl:variable name="indentation" select="0" />
-						
+						<xsl:apply-templates mode="tree" />
+<!--
 						<xsl:for-each select="content/item">
 <xsl:choose>
   <xsl:when test="indent = indentation">
@@ -28,23 +29,24 @@
                 <summary><li><a href="#{position()}"><xsl:value-of select="title"/></a></li></summary>
               </details>
               </li>
-<!--
+<-
                 <ul>
--->
+->
   </xsl:when>
   <xsl:otherwise>
 				  <li><a href="#{position()}"><xsl:value-of select="title"/></a></li>
-<!--
+<-
                 </ul>
               </details>
             </li>
--->
-  </xsl:otherwise>
-</xsl:choose>
-  </xsl:otherwise>
-</xsl:choose>
 <xsl:variable name="indentation" select="indent" />
+->
+  </xsl:otherwise>
+</xsl:choose>
+  </xsl:otherwise>
+</xsl:choose>
 						</xsl:for-each>
+-->
 						
 <!--
 							<xsl:choose>
@@ -60,16 +62,30 @@
 						</ul>
 					</aside>
 					<main>
-						<xsl:for-each select="content/item">
-							<h1 id="{position()}">
-								<xsl:value-of select="title"/>
-							</h1>
-							<div>
-								<xsl:copy-of select="txt"/>
-							</div>
-						</xsl:for-each>
+						<xsl:apply-templates mode="detail" />
 					</main>
 				</body>
 			</html>
 		</xsl:template>
-	</xsl:stylesheet>
+		
+	<xsl:template match="/content/item" mode="tree">
+		<li>
+		<xsl:element name="a">
+		<xsl:attribute name="href">#<xsl:number/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
+		</li>
+	</xsl:template>
+   
+	<xsl:template match="/content/item" mode="detail">
+		<xsl:element name="h{indent}">
+		<xsl:attribute name="id"><xsl:number/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
+		<div><xsl:copy-of select="txt"/></div>
+	</xsl:template>
+
+<!--
+		<h1 id="{position()}"><xsl:value-of select="title"/></h1>
+-->
+</xsl:stylesheet>
