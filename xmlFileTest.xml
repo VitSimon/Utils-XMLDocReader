@@ -23,8 +23,9 @@ Vestibulum sapien cursus nec Sed &lt;br&gt;
 	</item>
 	<item>
 		<title>Second</title>
-		<txt>Lorem ipsum dolor sit amet &lt;br&gt;
-Consectetuer ac iaculis diam velit &lt;br&gt;
+		<txt>text 1
+			<b>be</b> <p>Lorem ipsum dolor sit amet &lt;br&gt;
+Consectetuer ac iaculis diam velit &lt;br&gt;</p>
 Morbi leo Aenean orci lorem &lt;br&gt;
 Justo fringilla ante facilisis mauris &lt;br&gt;
 Nulla Pellentesque montes orci semper &lt;br&gt;
@@ -38,7 +39,7 @@ Id ut Nullam wisi interdum &lt;br&gt;
 Lacus Sed est Curabitur ac &lt;br&gt;
 Vestibulum sapien cursus nec Sed &lt;br&gt; 
 		</txt>
-		<indent>2</indent>
+		<indent>1</indent>
 	</item>
 	<item>
 		<title>SubSub</title>
@@ -57,12 +58,10 @@ Id ut Nullam wisi interdum &lt;br&gt;
 Lacus Sed est Curabitur ac &lt;br&gt;
 Vestibulum sapien cursus nec Sed &lt;br&gt;  
 		</txt>
-		<indent>3</indent>
-		<filepath>aa.txt</filepath>
+		<indent>2</indent>
 	</item>
-
 	<item>
-		<title>PokusPod2</title>
+		<title>SubSubSub</title>
 		<txt>text 2
 Lorem ipsum dolor sit amet &lt;br&gt;
 Consectetuer ac iaculis diam velit &lt;br&gt;
@@ -79,11 +78,19 @@ Id ut Nullam wisi interdum &lt;br&gt;
 Lacus Sed est Curabitur ac &lt;br&gt;
 Vestibulum sapien cursus nec Sed &lt;br&gt;
 		</txt>
+		<indent>3</indent>
+		<filepath>aa.txt</filepath>
+	</item>
+
+	<item>
+		<title>SubSubSub2</title>
+		<txt>text 2
+		</txt>
 		<indent>2</indent>
 	</item>
 
 	<item>
-		<title>Pokus B</title>
+		<title>Next one</title>
 		<txt>text 1B
 Lorem ipsum dolor sit amet &lt;br&gt;
 Consectetuer ac iaculis diam velit &lt;br&gt;

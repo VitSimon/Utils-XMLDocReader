@@ -59,6 +59,7 @@
 							</xsl:choose>
 
 -->
+
 						</ul>
 					</aside>
 					<main>
@@ -69,6 +70,41 @@
 		</xsl:template>
 		
 	<xsl:template match="/content/item" mode="tree">
+	
+<xsl:choose>                                                                                                                                                        
+    <xsl:when test="following-sibling::*[1]/indent = indent">
+		<li>
+		<xsl:element name="a">
+		<xsl:attribute name="href">#<xsl:number/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
+		</li>
+	</xsl:when>                                                                      
+    <xsl:otherwise>
+        <xsl:choose>
+            <xsl:when test="following-sibling::*[1]/indent &gt; indent">
+            <li>
+              <details open=''>
+                <summary><a href="#{position()}"><xsl:value-of select="title"/></a></summary>
+<!--
+            <ul> 
+-->
+			</xsl:when>
+            <xsl:otherwise>
+		<li>
+		<xsl:element name="a">
+		<xsl:attribute name="href">#<xsl:number/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
+		</li>
+                </ul>
+              </details>
+            </li>
+			</xsl:otherwise>
+        </xsl:choose>
+    </xsl:otherwise>                             
+</xsl:choose>
+
 		<li>
 		<xsl:element name="a">
 		<xsl:attribute name="href">#<xsl:number/></xsl:attribute>
@@ -78,7 +114,6 @@
 	</xsl:template>
    
 	<xsl:template match="/content/item" mode="detail">
-	<span>A<xsl:value-of select="preceding-sibling::*[1]/indent"/></span>
 		<xsl:element name="h{indent}">
 		<xsl:attribute name="id"><xsl:number/></xsl:attribute>
 		<xsl:value-of select="title"/>
