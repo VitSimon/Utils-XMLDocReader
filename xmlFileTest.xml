@@ -3,19 +3,19 @@
 <content>
 	<item>
 		<title>Head1</title>
-		<txt>
-text 1 <b>be</b>
+		<txt>text 1
+			<b>be</b>
 		</txt>
-		<sub>
-			<item>
-				<title>HeadSub</title>
-				<txt>text 2</txt>
-				<sub></sub>
-			</item>
-		</sub>
+		<indent>1</indent>
 	</item>
 	<item>
 		<title>Second</title>
+		<txt>text 2</txt>
+		<indent>2</indent>
+	</item>
+	<item>
+		<title>Third</title>
 		<txt>text 1B</txt>
+		<indent>1</indent>
 	</item>
 </content>
