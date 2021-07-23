@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="3.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -78,14 +78,21 @@
 	</xsl:template>
    
 	<xsl:template match="/content/item" mode="detail">
+	<span>A<xsl:value-of select="preceding-sibling::*[1]/indent"/></span>
 		<xsl:element name="h{indent}">
 		<xsl:attribute name="id"><xsl:number/></xsl:attribute>
 		<xsl:value-of select="title"/>
 		</xsl:element>
-		<div><xsl:copy-of select="txt"/></div>
+		<div><xsl:copy-of select="txt"/>
+		</div>
+		
+		<xsl:if test="filepath != ''">
+		<br />
+		<ul>
+		<xsl:for-each select="filepath">
+			<li><a href="{.}"><xsl:value-of select="."/></a></li>
+		</xsl:for-each>
+		</ul>
+		</xsl:if>
 	</xsl:template>
-
-<!--
-		<h1 id="{position()}"><xsl:value-of select="title"/></h1>
--->
 </xsl:stylesheet>
