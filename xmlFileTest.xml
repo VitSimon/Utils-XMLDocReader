@@ -1,114 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="xmlFileTestTransf.xsl"?>
 <content>
-	<item>
+	<itemD>
 		<title>Head1</title>
 		<txt>text 1
-			<b>be</b> <p>Lorem ipsum dolor sit amet &lt;br&gt;
-Consectetuer ac iaculis diam velit &lt;br&gt;</p>
-Morbi leo Aenean orci lorem &lt;br&gt;
-Justo fringilla ante facilisis mauris &lt;br&gt;
-Nulla Pellentesque montes orci semper &lt;br&gt;
-Vestibulum venenatis Aenean mi pellentesque &lt;br&gt;
-Semper id risus elit id &lt;br&gt;
-Dictum vel nibh In dignissim &lt;br&gt;
-Sed pretium habitasse vitae hendrerit &lt;br&gt;
-Nam Quisque ut ut Duis &lt;br&gt;
-Ac netus elit laoreet Nullam &lt;br&gt;
-Id ut Nullam wisi interdum &lt;br&gt;
-Lacus Sed est Curabitur ac &lt;br&gt;
-Vestibulum sapien cursus nec Sed &lt;br&gt;
-		</txt>
-		<indent>1</indent>
-	</item>
-	<item>
+			<b>be</b>
+			<p>Lorem ipsum dolor sit amet &lt;br&gt; Consectetuer ac iaculis diam velit &lt;br&gt;</p>Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
+	</itemD>
+	<itemD>
 		<title>Second</title>
 		<txt>text 1
-			<b>be</b> <p>Lorem ipsum dolor sit amet &lt;br&gt;
-Consectetuer ac iaculis diam velit &lt;br&gt;</p>
-Morbi leo Aenean orci lorem &lt;br&gt;
-Justo fringilla ante facilisis mauris &lt;br&gt;
-Nulla Pellentesque montes orci semper &lt;br&gt;
-Vestibulum venenatis Aenean mi pellentesque &lt;br&gt;
-Semper id risus elit id &lt;br&gt;
-Dictum vel nibh In dignissim &lt;br&gt;
-Sed pretium habitasse vitae hendrerit &lt;br&gt;
-Nam Quisque ut ut Duis &lt;br&gt;
-Ac netus elit laoreet Nullam &lt;br&gt;
-Id ut Nullam wisi interdum &lt;br&gt;
-Lacus Sed est Curabitur ac &lt;br&gt;
-Vestibulum sapien cursus nec Sed &lt;br&gt; 
-		</txt>
-		<indent>1</indent>
-	</item>
-	<item>
-		<title>SubSub</title>
-		<txt>Lorem ipsum dolor sit amet &lt;br&gt;
-Consectetuer ac iaculis diam velit &lt;br&gt;
-Morbi leo Aenean orci lorem &lt;br&gt;
-Justo fringilla ante facilisis mauris &lt;br&gt;
-Nulla Pellentesque montes orci semper &lt;br&gt;
-Vestibulum venenatis Aenean mi pellentesque &lt;br&gt;
-Semper id risus elit id &lt;br&gt;
-Dictum vel nibh In dignissim &lt;br&gt;
-Sed pretium habitasse vitae hendrerit &lt;br&gt;
-Nam Quisque ut ut Duis &lt;br&gt;
-Ac netus elit laoreet Nullam &lt;br&gt;
-Id ut Nullam wisi interdum &lt;br&gt;
-Lacus Sed est Curabitur ac &lt;br&gt;
-Vestibulum sapien cursus nec Sed &lt;br&gt;  
-		</txt>
-		<indent>2</indent>
-	</item>
-	<item>
-		<title>SubSubSub</title>
-		<txt>text 2
-Lorem ipsum dolor sit amet &lt;br&gt;
-Consectetuer ac iaculis diam velit &lt;br&gt;
-Morbi leo Aenean orci lorem &lt;br&gt;
-Justo fringilla ante facilisis mauris &lt;br&gt;
-Nulla Pellentesque montes orci semper &lt;br&gt;
-Vestibulum venenatis Aenean mi pellentesque &lt;br&gt;
-Semper id risus elit id &lt;br&gt;
-Dictum vel nibh In dignissim &lt;br&gt;
-Sed pretium habitasse vitae hendrerit &lt;br&gt;
-Nam Quisque ut ut Duis &lt;br&gt;
-Ac netus elit laoreet Nullam &lt;br&gt;
-Id ut Nullam wisi interdum &lt;br&gt;
-Lacus Sed est Curabitur ac &lt;br&gt;
-Vestibulum sapien cursus nec Sed &lt;br&gt;
-		</txt>
-		<indent>3</indent>
-		<filepath>aa.txt</filepath>
-	</item>
-
-	<item>
-		<title>SubSubSub2</title>
-		<txt>text 2
-		</txt>
-		<indent>2</indent>
-	</item>
-
-	<item>
+			<b>be</b>
+			<p>Lorem ipsum dolor sit amet &lt;br&gt; Consectetuer ac iaculis diam velit &lt;br&gt;</p>Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
+		<itemD>
+			<title>Sub</title>
+			<txt>text 2 Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
+			<itemD>
+				<title>SubSub</title>
+				<txt>text 2 Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
+				<filepath>aa.txt</filepath>
+			</itemD>
+		</itemD>
+		<itemD>
+			<title>SubSub2</title>
+			<txt>text 2 Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
+			<itemD>
+				<title>SubSub2.1</title>
+				<txt>text 2 Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
+			</itemD>
+		</itemD>
+	</itemD>
+	<itemD>
 		<title>Next one</title>
-		<txt>text 1B
-Lorem ipsum dolor sit amet &lt;br&gt;
-Consectetuer ac iaculis diam velit &lt;br&gt;
-Morbi leo Aenean orci lorem &lt;br&gt;
-Justo fringilla ante facilisis mauris &lt;br&gt;
-Nulla Pellentesque montes orci semper &lt;br&gt;
-Vestibulum venenatis Aenean mi pellentesque &lt;br&gt;
-Semper id risus elit id &lt;br&gt;
-Dictum vel nibh In dignissim &lt;br&gt;
-Sed pretium habitasse vitae hendrerit &lt;br&gt;
-Nam Quisque ut ut Duis &lt;br&gt;
-Ac netus elit laoreet Nullam &lt;br&gt;
-Id ut Nullam wisi interdum &lt;br&gt;
-Lacus Sed est Curabitur ac &lt;br&gt;
-Vestibulum sapien cursus nec Sed &lt;br&gt;  
-		</txt>
-		<indent>1</indent>
+		<txt>text 1B Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
 		<filepath>aa.txt</filepath>
 		<filepath>aaa.txt</filepath>
-	</item>
+	</itemD>
 </content>

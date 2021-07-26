@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="3.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+	<xsl:variable name="indexHead" select="0" />
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -13,9 +15,9 @@
 				<section id="social">&#160;</section>
 				<aside>
 					<ul class="tree-view">
-						<xsl:variable name="indentation" select="0" />
 						<xsl:apply-templates mode="tree" />
 <!--
+	<xsl:template match="/">
 						<xsl:for-each select="content/item">
 <xsl:choose>
   <xsl:when test="indent = indentation">
@@ -59,7 +61,6 @@
 							</xsl:choose>
 
 -->
-
 						</ul>
 					</aside>
 					<main>
@@ -69,8 +70,9 @@
 			</html>
 		</xsl:template>
 		
-	<xsl:template match="/content/item" mode="tree">
-	
+	<xsl:template match="itemD" mode="tree">
+		<xsl:param name="tpl_prevPos" />
+<!--
 <xsl:choose>                                                                                                                                                        
     <xsl:when test="following-sibling::*[1]/indent = indent">
 		<li>
@@ -86,9 +88,6 @@
             <li>
               <details open=''>
                 <summary><a href="#{position()}"><xsl:value-of select="title"/></a></summary>
-<!--
-            <ul> 
--->
 			</xsl:when>
             <xsl:otherwise>
 		<li>
@@ -104,18 +103,30 @@
         </xsl:choose>
     </xsl:otherwise>                             
 </xsl:choose>
-
+		<xsl:attribute name="id"><xsl:value-of select="${count(ancestor::*)}_${position()}"/></xsl:attribute>
+		<li><a href="#{count(ancestor::*)}_{position()}"><xsl:value-of select="title"/></a></li>
+		<li><a href="#{$tpl_prevPos}}"><xsl:value-of select="title"/></a></li>
+-->
 		<li>
 		<xsl:element name="a">
-		<xsl:attribute name="href">#<xsl:number/></xsl:attribute>
+		<xsl:attribute name="href">#<xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
 		<xsl:value-of select="title"/>
 		</xsl:element>
 		</li>
+		<xsl:variable name="indexHead" select="0" />
+		
+		<xsl:for-each select="itemD">
+			<xsl:apply-templates select="." mode="tree">
+				<xsl:with-param name="tpl_prevPos"><xsl:value-of select="$tpl_prevPos"/>_<xsl:value-of select="position()"/></xsl:with-param> 
+			</xsl:apply-templates>
+		</xsl:for-each>
 	</xsl:template>
    
-	<xsl:template match="/content/item" mode="detail">
-		<xsl:element name="h{indent}">
-		<xsl:attribute name="id"><xsl:number/></xsl:attribute>
+	<xsl:template match="itemD" mode="detail">
+		<xsl:param name="tpl_prevPos" />
+		
+		<xsl:element name="h{count(ancestor::*)}">
+		<xsl:attribute name="id"><xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
 		<xsl:value-of select="title"/>
 		</xsl:element>
 		<div><xsl:copy-of select="txt"/>
@@ -129,5 +140,17 @@
 		</xsl:for-each>
 		</ul>
 		</xsl:if>
+		
+		<xsl:for-each select="itemD">
+			<xsl:apply-templates select="." mode="detail">
+				<xsl:with-param name="tpl_prevPos"><xsl:value-of select="$tpl_prevPos"/>_<xsl:value-of select="position()"/></xsl:with-param> 
+			</xsl:apply-templates>
+		</xsl:for-each>
+		
+<!--
+		<xsl:for-each select="itemD">
+			<xsl:apply-templates select="itemD" mode="detail" />
+		</xsl:for-each>
+-->		
 	</xsl:template>
 </xsl:stylesheet>
