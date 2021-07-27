@@ -107,19 +107,38 @@
 		<li><a href="#{count(ancestor::*)}_{position()}"><xsl:value-of select="title"/></a></li>
 		<li><a href="#{$tpl_prevPos}}"><xsl:value-of select="title"/></a></li>
 -->
+		<xsl:variable name="indexHead" select="0" />
+
+<xsl:choose>                                                                                                                                                        
+    <xsl:when test="itemD">
+      <li>
+        <details open=''>
+          <summary>
+		<xsl:element name="a">
+		<xsl:attribute name="href">#<xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
+		  </summary>
+          <ul>
+		<xsl:for-each select="itemD">
+			<xsl:apply-templates select="." mode="tree">
+				<xsl:with-param name="tpl_prevPos"><xsl:value-of select="$tpl_prevPos"/>_<xsl:value-of select="position()"/></xsl:with-param> 
+			</xsl:apply-templates>
+		</xsl:for-each>
+          </ul>
+        </details>
+      </li>
+	</xsl:when>                                                                      
+    <xsl:otherwise>
 		<li>
 		<xsl:element name="a">
 		<xsl:attribute name="href">#<xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
 		<xsl:value-of select="title"/>
 		</xsl:element>
 		</li>
-		<xsl:variable name="indexHead" select="0" />
-		
-		<xsl:for-each select="itemD">
-			<xsl:apply-templates select="." mode="tree">
-				<xsl:with-param name="tpl_prevPos"><xsl:value-of select="$tpl_prevPos"/>_<xsl:value-of select="position()"/></xsl:with-param> 
-			</xsl:apply-templates>
-		</xsl:for-each>
+    </xsl:otherwise>                             
+</xsl:choose>
+
 	</xsl:template>
    
 	<xsl:template match="itemD" mode="detail">
