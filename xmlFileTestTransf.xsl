@@ -7,11 +7,12 @@
 			<head>
 				<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 				<meta name="generator" content="PSPad editor, www.pspad.com" />
-				<title>{base-uri()}</title>
+				<title><xsl:value-of select="content/itemD[1]/title" /></title>
 				<link rel="stylesheet" href="7.css" />
 				<link rel="stylesheet" href="docs.css" />
 			</head>
 			<body class="surface custom-scrollbar" >
+
 				<section id="social">&#160;</section>
 				<aside>
 					<ul class="tree-view">
@@ -66,6 +67,35 @@
 					<main>
 						<xsl:apply-templates mode="detail" />
 					</main>
+
+<script>
+(() => {
+    const includes = document.getElementsByTagName('include');
+    [].forEach.call(includes, i => {
+        let filePath = i.getAttribute('src');
+        
+    const req = new XMLHttpRequest();    
+    req.onload = function() {
+        const text = req.responseText;
+        i.insertAdjacentHTML('afterend', text);
+        i.remove();
+    };    
+    req.open('GET', filePath);
+    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8')
+    req.send();
+
+        
+        /*fetch(filePath).then(file => {
+            file.text().then(content => {
+                i.insertAdjacentHTML('afterend', content);
+                i.remove();
+            });
+        });*/
+    });
+})();
+</script>
+
+
 				</body>
 			</html>
 		</xsl:template>
@@ -148,8 +178,28 @@
 		<xsl:attribute name="id"><xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
 		<xsl:value-of select="title"/>
 		</xsl:element>
-		<div><xsl:copy-of select="txt"/>
+		<div>
+		<xsl:copy-of select="txt"/>
+		<xsl:if test="embedfile != ''">
+			<xsl:for-each select="embedfile">
+				<include src="{.}"></include>
+			</xsl:for-each>
+<!--
+		<p><xsl:copy-of select="document('DataProInkluzi.html.txt')"/></p>
+		<xsl:value-of select="embedfile"/>
+		<xsl:copy-of select="document(@embedfile)"/>
+		<p>
+		<xsl:copy-of select="document('/DataProInkluzi.html')"  />
+		</p>
+
+-->
+		</xsl:if>
+		
 		</div>
+
+<!--
+		<xsl:apply-templates select="document(@embedfile)/" />
+-->
 		
 		<xsl:if test="filepath != ''">
 		<br />

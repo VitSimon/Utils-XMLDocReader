@@ -12,6 +12,7 @@
 		<txt>text 1
 			<b>be</b>
 			<p>Lorem ipsum dolor sit amet &lt;br&gt; Consectetuer ac iaculis diam velit &lt;br&gt;</p>Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
+			<embedfile>Include1.html</embedfile>
 		<itemD>
 			<title>Sub</title>
 			<txt>text 2 Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
@@ -19,6 +20,7 @@
 				<title>SubSub</title>
 				<txt>text 2 Morbi leo Aenean orci lorem &lt;br&gt; Justo fringilla ante facilisis mauris &lt;br&gt; Nulla Pellentesque montes orci semper &lt;br&gt; Vestibulum venenatis Aenean mi pellentesque &lt;br&gt; Semper id risus elit id &lt;br&gt; Dictum vel nibh In dignissim &lt;br&gt; Sed pretium habitasse vitae hendrerit &lt;br&gt; Nam Quisque ut ut Duis &lt;br&gt; Ac netus elit laoreet Nullam &lt;br&gt; Id ut Nullam wisi interdum &lt;br&gt; Lacus Sed est Curabitur ac &lt;br&gt; Vestibulum sapien cursus nec Sed &lt;br&gt;</txt>
 				<filepath>aa.txt</filepath>
+				<embedfile>Include2.html</embedfile>
 			</itemD>
 		</itemD>
 		<itemD>
