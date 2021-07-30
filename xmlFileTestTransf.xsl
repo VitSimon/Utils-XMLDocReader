@@ -139,8 +139,8 @@
 -->
 		<xsl:variable name="indexHead" select="0" />
 
-<xsl:choose>                                                                                                                                                        
-    <xsl:when test="itemD">
+<xsl:choose>
+    <xsl:when test="itemD|treelink">
       <li>
         <details open=''>
           <summary>
@@ -154,6 +154,13 @@
 			<xsl:apply-templates select="." mode="tree">
 				<xsl:with-param name="tpl_prevPos"><xsl:value-of select="$tpl_prevPos"/>_<xsl:value-of select="position()"/></xsl:with-param> 
 			</xsl:apply-templates>
+		</xsl:for-each>
+		
+		<xsl:for-each select="treelink">
+		<xsl:element name="a">
+		<xsl:attribute name="href"><xsl:value-of select="filepath"/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
 		</xsl:for-each>
           </ul>
         </details>
