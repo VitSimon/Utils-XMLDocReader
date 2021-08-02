@@ -137,7 +137,6 @@
 		<li><a href="#{count(ancestor::*)}_{position()}"><xsl:value-of select="title"/></a></li>
 		<li><a href="#{$tpl_prevPos}}"><xsl:value-of select="title"/></a></li>
 -->
-		<xsl:variable name="indexHead" select="0" />
 
 <xsl:choose>
     <xsl:when test="itemD|treelink">
@@ -180,6 +179,8 @@
    
 	<xsl:template match="itemD" mode="detail">
 		<xsl:param name="tpl_prevPos" />
+
+		<xsl:if test="txt != '' or embedfile != ''">
 		
 		<xsl:element name="h{count(ancestor::*)}">
 		<xsl:attribute name="id"><xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
@@ -201,8 +202,9 @@
 
 -->
 		</xsl:if>
-		
 		</div>
+		</xsl:if>
+		
 
 <!--
 		<xsl:apply-templates select="document(@embedfile)/" />

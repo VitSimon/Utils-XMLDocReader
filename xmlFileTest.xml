@@ -42,4 +42,12 @@
 			<filepath>xmlFileTest2.xml</filepath>
 		</treelink>
 	</itemD>
+	<itemD>
+		<title>Test heading only with treelink</title>
+		<txt></txt>
+		<treelink>
+			<title>External XML file</title>
+			<filepath>xmlFileTest2.xml</filepath>
+		</treelink>
+	</itemD>
 </content>
