@@ -41,6 +41,10 @@
 			<title>External XML file</title>
 			<filepath>xmlFileTest2.xml</filepath>
 		</treelink>
+		<treelink>
+			<title>Copy of External XML file</title>
+			<filepath>xmlFileTest2.xml</filepath>
+		</treelink>
 	</itemD>
 	<itemD>
 		<title>Test heading only with treelink</title>
@@ -50,4 +54,8 @@
 			<filepath>xmlFileTest2.xml</filepath>
 		</treelink>
 	</itemD>
+		<treelink>
+			<title>Second link</title>
+			<filepath>xmlFileTest2.xml</filepath>
+		</treelink>
 </content>

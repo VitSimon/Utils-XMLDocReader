@@ -100,6 +100,16 @@
 			</html>
 		</xsl:template>
 		
+	<xsl:template match="treelink" mode="tree">
+		<xsl:param name="tpl_prevPos" />
+		<li>
+		<xsl:element name="a">
+		<xsl:attribute name="href"><xsl:value-of select="filepath"/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
+		</li>
+	</xsl:template>
+	
 	<xsl:template match="itemD" mode="tree">
 		<xsl:param name="tpl_prevPos" />
 <!--
@@ -156,10 +166,12 @@
 		</xsl:for-each>
 		
 		<xsl:for-each select="treelink">
+		<li>
 		<xsl:element name="a">
 		<xsl:attribute name="href"><xsl:value-of select="filepath"/></xsl:attribute>
 		<xsl:value-of select="title"/>
 		</xsl:element>
+		</li>
 		</xsl:for-each>
           </ul>
         </details>
@@ -177,6 +189,9 @@
 
 	</xsl:template>
    
+	<xsl:template match="treelink" mode="detail">
+	</xsl:template>
+	
 	<xsl:template match="itemD" mode="detail">
 		<xsl:param name="tpl_prevPos" />
 
@@ -213,7 +228,7 @@
 		<xsl:if test="filepath != ''">
 		<br />
 		<ul>
-		<xsl:for-each select="filepath">
+		<xsl:for-each select="./filepath">
 			<li><a href="{.}"><xsl:value-of select="."/></a></li>
 		</xsl:for-each>
 		</ul>
