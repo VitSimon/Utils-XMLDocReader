@@ -155,6 +155,7 @@
           <summary>
 		<xsl:element name="a">
 		<xsl:attribute name="href">#<xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
+		<xsl:apply-templates select="treeicon" mode="tree" />
 		<xsl:value-of select="title"/>
 		</xsl:element>
 		  </summary>
@@ -181,6 +182,7 @@
 		<li>
 		<xsl:element name="a">
 		<xsl:attribute name="href">#<xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
+		<xsl:apply-templates select="treeicon" mode="tree" />
 		<xsl:value-of select="title"/>
 		</xsl:element>
 		</li>
@@ -202,7 +204,7 @@
 		<xsl:value-of select="title"/>
 		</xsl:element>
 		<div>
-		<xsl:copy-of select="txt"/>
+		<xsl:copy-of select="txt/node()"/>
 		<xsl:if test="embedfile != ''">
 			<xsl:for-each select="embedfile">
 				<include src="{.}"></include>
@@ -246,4 +248,9 @@
 		</xsl:for-each>
 -->		
 	</xsl:template>
+	
+	<xsl:template match="treeicon" mode="tree">
+		<img src="{.}" />&#160;
+	</xsl:template>
+	
 </xsl:stylesheet>
