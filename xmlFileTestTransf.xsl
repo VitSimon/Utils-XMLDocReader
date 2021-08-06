@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="3.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="3.0" 
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+xmlns:xfn="http://www.w3.org/2005/xpath-functions"
+xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
+>
 
 	<xsl:variable name="indexHead" select="0" />
+	
 	<xsl:template match="/">
+
+        <xsl:copy>
+            <xsl:iterate select="uri-collection('/filepath') ! doc(.)">
+                <xsl:variable name="fileUri" select=" concat('update/', tokenize( document-uri(.),'/')[last()])"/>
+                <xsl:value-of select="fileUri"/>
+            </xsl:iterate>
+        </xsl:copy>
+	
 		<html>
 			<head>
 				<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -18,6 +31,12 @@
 					<ul class="tree-view">
 						<xsl:apply-templates mode="tree" />
 <!--
+			<script>
+			//<![CDATA[
+			document.write(window.location.href);
+			//]]>
+			</script>
+						
 	<xsl:template match="/">
 						<xsl:for-each select="content/item">
 <xsl:choose>
@@ -69,6 +88,63 @@
 					</main>
 
 <script>
+<![CDATA[
+function URLToArray(url)
+{
+	var urlstring = url;
+	
+	if (typeof urlstring === "undefined" || urlstring == '')
+		urlstring = window.location.href.toString();
+	
+	var split1 = (urlstring + '?').split('?');
+	var mainPart = "";
+	var parms = "";
+	var bookmark = "";
+	
+	if (Array.isArray(split1))
+	{
+		mainPart = split1[0];
+		parms = split1[1];
+		parms = parms.split('&');
+		
+		bookmark = parms[parms.length - 1].split('#');
+		parms[parms.length - 1] = bookmark[0];
+		
+		if (Array.isArray(bookmark) && bookmark.length > 1)
+		{		
+			bookmark = bookmark[1];
+		}
+
+		var i = 0;
+		
+		for (i = 0; i < parms.length; i++) {
+			parms[i] = parms[i].split('=');
+		}
+	}
+	
+	var protocol = '';
+	
+	if (mainPart.indexOf(':') != -1)
+	{
+		mainPart = mainPart.split(':');
+		protocol = mainPart.shift();
+		mainPart = mainPart.join(':');
+	}
+	
+	parms = parms.filter(x => x | x != '');
+	
+	//var finReply = [ protocol, mainPart, parms, bookmark ];
+	var finReply = { urlstring, protocol, mainPart, parms, bookmark };
+	console.log(finReply);
+	return finReply;
+}
+
+//URLToArray()
+//'a.txt?aa=7'
+]]>
+</script>
+
+<script>
 (() => {
     const includes = document.getElementsByTagName('include');
     [].forEach.call(includes, i => {
@@ -100,6 +176,17 @@
 			</html>
 		</xsl:template>
 		
+<!--
+	<xsl:template match="treelink" mode="tree">
+		<xsl:param name="tpl_prevPos" />
+		<li>
+		<xsl:element name="a">
+		<xsl:attribute name="href"><xsl:value-of select="filepath"/></xsl:attribute>
+		<xsl:value-of select="title"/>
+		</xsl:element>
+		</li>
+	</xsl:template>
+-->
 	<xsl:template match="treelink" mode="tree">
 		<xsl:param name="tpl_prevPos" />
 		<li>
