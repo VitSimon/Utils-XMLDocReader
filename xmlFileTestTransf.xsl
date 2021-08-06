@@ -96,32 +96,57 @@ function URLToArray(url)
 	if (typeof urlstring === "undefined" || urlstring == '')
 		urlstring = window.location.href.toString();
 	
-	var split1 = (urlstring + '?').split('?');
+	var split1 = urlstring.split('?');
+	
 	var mainPart = "";
 	var parms = "";
 	var bookmark = "";
+	var split2 = "";
+	var fromPars = false;
 	
 	if (Array.isArray(split1))
 	{
 		mainPart = split1[0];
-		parms = split1[1];
-		parms = parms.split('&');
-		
-		bookmark = parms[parms.length - 1].split('#');
-		parms[parms.length - 1] = bookmark[0];
-		
-		if (Array.isArray(bookmark) && bookmark.length > 1)
-		{		
-			bookmark = bookmark[1];
-		}
 
-		var i = 0;
-		
-		for (i = 0; i < parms.length; i++) {
-			parms[i] = parms[i].split('=');
+		if (split1.length > 1)
+		{
+			parms = split1[1];
+			parms = parms.split('&');
+			fromPars = Array.isArray(parms) && parms.length > 0;
+			
+			if (fromPars)
+			{
+				parms = parms.filter(x => x | x != '');
+				split2 = parms[parms.length - 1];
+			} else {
+				split2 = split1[1];
+			}
 		}
+	} else {
+		mainPart = urlstring;
 	}
 	
+	if (split2 === "")
+	{
+		split2 = urlstring;
+		fromPars = false;
+	}
+	
+	split2 = split2.split('#');
+	
+	if (split2.length > 1)
+		bookmark = split2[1];
+	
+	if (fromPars)
+		parms[parms.length - 1] = split2[0];
+	else {
+		mainPart = split2[0];
+	}
+	
+	for (i = 0; i < parms.length; i++) {
+		parms[i] = parms[i].split('=');
+	}
+
 	var protocol = '';
 	
 	if (mainPart.indexOf(':') != -1)
@@ -131,16 +156,34 @@ function URLToArray(url)
 		mainPart = mainPart.join(':');
 	}
 	
-	parms = parms.filter(x => x | x != '');
-	
 	//var finReply = [ protocol, mainPart, parms, bookmark ];
 	var finReply = { urlstring, protocol, mainPart, parms, bookmark };
-	console.log(finReply);
+	
 	return finReply;
+}
+
+function ShowOnlyBookmark()
+{
+    let divs = document.querySelectorAll('div');
+    
+    [].forEach.call(divs, i => {
+    	if (i.id.startsWith('DIV--'))
+        	i.style.display = "none";
+    });
+    
+    //alert('DIV--' + URLToArray()["bookmark"]);
+    
+    let obj = document.getElementById('DIV--' + URLToArray()["bookmark"]);
+    
+    if (obj)
+    	obj.style.display = "block";
 }
 
 //URLToArray()
 //'a.txt?aa=7'
+window.addEventListener("popstate", function(){
+    ShowOnlyBookmark();
+});
 ]]>
 </script>
 
@@ -286,11 +329,14 @@ function URLToArray(url)
 
 		<xsl:if test="txt != '' or embedfile != ''">
 		
+		<xsl:element name="div">
+		<xsl:attribute name="id">DIV--<xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
+
 		<xsl:element name="h{count(ancestor::*)}">
 		<xsl:attribute name="id"><xsl:value-of select="$tpl_prevPos"/>_<xsl:number/></xsl:attribute>
 		<xsl:value-of select="title"/>
 		</xsl:element>
-		<div>
+
 		<xsl:copy-of select="txt/node()"/>
 		<xsl:if test="embedfile != ''">
 			<xsl:for-each select="embedfile">
@@ -306,9 +352,6 @@ function URLToArray(url)
 
 -->
 		</xsl:if>
-		</div>
-		</xsl:if>
-		
 
 <!--
 		<xsl:apply-templates select="document(@embedfile)/" />
@@ -322,13 +365,16 @@ function URLToArray(url)
 		</xsl:for-each>
 		</ul>
 		</xsl:if>
-		
+
+		</xsl:element>
+
 		<xsl:for-each select="itemD">
 			<xsl:apply-templates select="." mode="detail">
 				<xsl:with-param name="tpl_prevPos"><xsl:value-of select="$tpl_prevPos"/>_<xsl:value-of select="position()"/></xsl:with-param> 
 			</xsl:apply-templates>
 		</xsl:for-each>
-		
+
+		</xsl:if>
 <!--
 		<xsl:for-each select="itemD">
 			<xsl:apply-templates select="itemD" mode="detail" />
