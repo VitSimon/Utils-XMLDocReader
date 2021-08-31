@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="xmlFileTestTransf.xsl"?>
-<content>
+<content
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="validation.xsd"
+>
 	<itemD>
 		<title>Head1</title>
 		<txt>text 1

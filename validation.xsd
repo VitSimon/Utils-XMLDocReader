@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="content">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="itemD" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element ref="treelink" minOccurs="0" maxOccurs="unbounded" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="typestring">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="typefilepath">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="title" type="typestring" />
+	<!--<xs:element name="txt" type="typestring" />-->
+	<xs:element name="txt">
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:any processContents="lax" maxOccurs="unbounded"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="treeicon" type="typefilepath" />
+	<xs:element name="filepath" type="typefilepath" />
+	<xs:element name="embedfile" type="typefilepath" />
+	<xs:element name="itemD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="title" minOccurs="1" maxOccurs="1" />
+					<xs:element ref="txt" minOccurs="0" maxOccurs="1" />
+					<xs:element ref="treeicon" minOccurs="0" maxOccurs="1" />
+					<xs:element ref="filepath" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element ref="embedfile" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element ref="itemD" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element ref="treelink" minOccurs="0" maxOccurs="unbounded" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="treelink">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="title" minOccurs="1" maxOccurs="1" />
+					<xs:element ref="filepath" minOccurs="1" maxOccurs="1" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
